@@ -50,6 +50,35 @@ ok      bitbucket.org/lavalogic/magma-accounts/test     20.443s
 ## 2. Running Directly from VS Code
 To run test function directly from VS Code, ensure that the file ends with `_test.go` (e.g., `magma_account_test.go`) & inside file testing functions name start with `Test`[funname] . You should see a "Run" option directly on the testing function . 
 
+# Test Timeout Setup
+
+**Note :** By default, the `go test` command has a timeout of 30 seconds. To prevent tests from being prematurely terminated due to timeouts, you can manually set a custom timeout.
+
+## 1) From the Command Line
+To run tests with a custom timeout from the command line, use the `-timeout` flag to specify the duration. Here is an example command to set the timeout to 60 seconds:
+
+```go
+go test -timeout 60s -v
+```
+## 2) Directly from VS Code Settings
+
+If you prefer running tests directly from VS Code, you can update the timeout settings in VS Code itself to prevent tests from timing out prematurely.
+
+**Steps to Update Test Timeout in VS Code:**
+
+1. **Go to VS Code Settings:**
+
+2. **Search for `Go: Test Timeout`:**
+   - In the search bar, type `Go: Test Timeout` to locate the test timeout setting for Go.
+
+3. **Locate the Default Value:**
+   - You will find the default value set to `30s`.
+
+4. **Update the Timeout Value:**
+   - Change the value to a duration that suits your requirements, such as `60s` or more.
+
+By increasing the timeout value, you ensure that longer-running tests have enough time to complete without being forcefully terminated by the `TestRunner` function. 
+
 # Test Generic Code Overview
 
 ## TableConfig Struct
